@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Event</title>
+    <link rel="stylesheet" href="/static/add_event.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ingrid+Darling&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Imprima&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h2>MUSE</h2>
+        <form action="#">
+           <div class="details">
+            <label for="event_name">Event name</label>
+            <input type="text" placeholder="Enter event name" required>
+           </div>
+           <div class="details">
+            <label for="event_venue">Venue</label>
+            <input type="text" placeholder="Enter place of event" required>
+           </div>
+           <div class="details">
+            <label for="event_date">Date</label>
+            <input type="date" required>
+           </div>
+           <div class="details">
+            <label for="event_time">Time</label>
+            <input type="time" required>
+           </div>
+           <div class="details">
+            <label for="event_flyer">Event Flyer</label>
+            <input type="file">
+           </div>
+            <div class="button">
+                <button type="submit" style="color: #fff;">Add event</button>
+                <button type="submit" style="color: #fff;">Add ticket</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
