@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/static/css/signin.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signin</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ingrid+Darling&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  
+    <div class="head">
+        <marquee style="font-family: 'Ingrid Darling', sans-serif;"><b>MUSE </b></marquee>
+    </div>
+    <P style="font-family: 'Imprima', sans-serif; text-align: center; font-size: 30px; color:rgb(43, 11, 11)">Sign in to your account</P>
+    <div class="container">
+      <form method="post" action="/submit" role="form"> 
+        <div class="mb-3">
+            <label for="formGroupExampleInput" class="form-label" style="font-family: 'Imprima', sans-serif; font-size: 29px;" >Email</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter your email" name="email" required>
+          </div>
+          <div class="mb-3">
+            <label for="formGroupExampleInput2" class="form-label" style="font-family: 'Imprima', sans-serif; font-size: 29px;">Password</label>
+            <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="Enter your password" name="password" required>
+          </div>
+          
+          <a><button value="submit" type="submit" class="btn btn-primary" style="font-family: 'Imprima', sans-serif; font-size: 20px;">Sign in</button></a>
+    </form> 
+    <p>Don't have an account? <a style="color: blue;">signup</a></p>
+
+        </div>
+
+    
+</body>
+</html>
