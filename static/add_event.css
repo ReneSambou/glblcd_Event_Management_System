@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Imprima', sans-serif;
+}
+
+body{
+    background-color: #c3edc0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+}
+
+.container{
+    background-color: #fdffae;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    width: 500px;
+    height: 590px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+
+}
+
+h2{
+     font-family: 'Ingrid Darling', sans-serif;
+     font-size: 45px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+.details{
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+}
+.details input{
+    width: 300px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    padding: 10px;
+}
+button{
+    width: 150px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #208d20;
+    border: none;
+    margin: 10px;
+}
