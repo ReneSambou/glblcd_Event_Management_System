@@ -1,0 +1,91 @@
+body{
+    background-color: #FDFFAE;
+}
+.header{
+    font-family: 'Ingrid Darling';
+    font-weight: bolder;
+    font-size: 24px;
+    
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Imprima';
+    
+
+}
+.btn{
+    margin-left: 1%; 
+}
+.add_btn{
+    margin-left: 10%;   
+}
+.search{
+    margin-left: 25%;
+    border-radius: 15px;
+    border: none;
+    padding: 7px;
+}
+.events{
+    font-family: 'Imprima' ;
+    font-weight: bolder;
+    font-size: 32px;
+    margin-left: 10%;
+}
+.prompt{
+    font-weight: lighter;
+    font-size: 20px;
+    font-style: italic;
+    
+}
+.about{
+    margin-top: 2%;
+    margin-left: 10%;
+}
+.s1{
+    margin-top: 0.5%;
+    width: 90%;
+}
+.s2{
+    margin-top: 2%;
+}
+
+
+.service{
+    margin-top: 5%;
+    margin-left: 10%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+.a2{
+    margin-top: 50%;
+}
+.slider{
+    background-image: url(../5.jpg);
+    margin-top: 2%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 90%;
+    height: 400px;
+    
+    animation: slide 20s infinite;
+  }
+
+
+  @keyframes slide {
+    25%{
+        background-image: url(../1.jpg);
+    }
+    50%{
+        background-image: url(../2.jpg);
+    }
+    75%{
+        background-image: url(../4.png);
+    }
+    100%{
+        background-image: url(../3.jpg);
+    }
+    
+  }
