@@ -63,6 +63,8 @@ with app.app_context():
         new_event= Event(
             event_name = events_name,
             venue = venue,
+            date = date,
+            time = time,
             event_flyer = event_flyer,
             
         )

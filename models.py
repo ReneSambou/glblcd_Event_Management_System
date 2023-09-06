@@ -29,6 +29,7 @@ class Event(db.Model):
         user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
         event_name = db.Column(db.String(100))
         venue = db.Column(db.String(100))
-        date_time = db.Column(db.DateTime)
+        date = db.Column(db.String(100))
+        time = db.Column(db.String(100))
         event_flyer =db.Column(db.String(255))
         created = db.Column(db.DateTime, server_default = sqlalchemy.func.now())
