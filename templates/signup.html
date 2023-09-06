@@ -18,7 +18,7 @@
     <p style="font-family: 'Imprima', sans-serif; text-align: center; font-size: 30px; color:rgb(43, 11, 11);" > Create an account today !!! </p>
 
     <div class="container">
-      <form method="post" action="/submit" role="form"> 
+      <form method="POST" action="/register" role="form"> 
         <div class="mb-3">
           <label for="formGroupExampleInput" class="form-label" style="font-family: 'Imprima', sans-serif; font-size: 20px;" >Username</label>
           <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter a Username" name="username" required>
@@ -38,7 +38,7 @@
           
           <a><button value="submit" type="submit" class="btn btn-primary" style="font-family: 'Imprima', sans-serif; font-size: 20px;">Sign up</button></a>
     </form> 
-    <p>Already have an account? <a style="color: blue;">signin</a></p>
+    <p>Already have an account? <a href="/login">signin</a></p>
 
         </div>
 
