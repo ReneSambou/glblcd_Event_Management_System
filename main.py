@@ -3,6 +3,7 @@ from flask_login import LoginManager, UserMixin, login_user, current_user, logou
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
 import secrets
+from models import db, Event, User
 
 
 app = Flask(__name__)
@@ -11,34 +12,15 @@ app.config['SECRET_KEY'] = '29e91ce35b1f971ad0565d93a2a3777c'
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///events_management.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-db = SQLAlchemy()
 db.init_app(app)
 
 
 with app.app_context():
-
-    class User(db.Model):
-        __tablename__ = "users"
-
-        # fields
-        id = db.Column(db.Integer, primary_key=True)
-        name = db.Column(db.String(100))
-        email = db.Column(db.String(100), unique=True)
-        password = db.Column(db.String(100))
-
-        def to_dict(self):
-            """
-                representing the user record in dictionary format
-                :return:
-            """
-            dictionary = dict()
-            for column in self.__table__.columns:
-                dictionary[column.name] = getattr(self, column.name)
-            return dictionary
+    db.create_all()  
 
     @app.route('/')
     def index():
-        return render_template('index.html')
+        return render_template('event.html')
 
     @app.route('/login', methods=['POST'])
     def login():
@@ -65,9 +47,42 @@ with app.app_context():
     def signup():
         return render_template('signup.html')
     
-    @app.route('/event')
-    def event():
+    @app.route('/add_events', methods = ["POST"])
+    def add_events():
+        events_name = request.form.get("name")
+        venue = request.form.get("venue")
+        date = request.form.get("date")
+        time = request.form.get("time")
+        event_flyer = request.form.get("flyer")
+
+        existing_event = Event.query.filter_by(event_name = request.form.get("name")).first()
+
+        if existing_event:                                                                                                                                                                                                                               
+            return jsonify(response={"error": "Event already exists."}), 400
+        
+        new_event= Event(
+            event_name = events_name,
+            venue = venue,
+            event_flyer = event_flyer,
+            
+        )
+
+        db.session.add(new_event)
+
+        db.session.commit()
         return render_template('event.html')
+
+
+
+
+
+    
+   
+    
+    @app.route("/event", methods = ['POST', 'GET'])
+    def add():
+        
+        return render_template('add_events.html')
 
     @app.route("/register", methods=["POST"])
     def register():

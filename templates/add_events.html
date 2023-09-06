@@ -12,29 +12,31 @@
 <body>
     <div class="container">
         <h2>MUSE</h2>
-        <form action="#">
+        <form action="/add_events" method="post" role="form">
            <div class="details">
             <label for="event_name">Event name</label>
-            <input type="text" placeholder="Enter event name" required>
+            <input type="text" placeholder="Enter event name" required name="name">
            </div>
            <div class="details">
             <label for="event_venue">Venue</label>
-            <input type="text" placeholder="Enter place of event" required>
+            <input type="text" placeholder="Enter place of event" required name="venue">
            </div>
            <div class="details">
             <label for="event_date">Date</label>
-            <input type="date" required>
+            <input type="date" required name="date" >
            </div>
            <div class="details">
             <label for="event_time">Time</label>
-            <input type="time" required>
+            <input type="time" required name="time">
            </div>
            <div class="details">
             <label for="event_flyer">Event Flyer</label>
-            <input type="file">
+            <input type="file" name="flyer">
            </div>
             <div class="button">
-                <button class="btn btn-outline-success" type="submit" style="color: #fff;">Add event</button>
+                <form action="/add_events" method="post" role="form">
+                    <button class="btn btn-outline-success" type="submit" style="color: #fff;">Add event</button>
+                </form>
                 <button class="btn btn-outline-success" type="submit" style="color: #fff;">Add ticket</button>
             </div>
         </form>

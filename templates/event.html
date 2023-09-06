@@ -21,7 +21,11 @@
 <div class="container">
     <input class="search" placeholder="search events ">
     <button class="btn btn-outline-success" type="submit">Search</button>
-    <div class="add_btn"><button class="btn btn-outline-success" type="submit">Create event</button></div>
+    <form action="/event" method="post" role="form">
+        <div class="add_btn">
+            <button class="btn btn-outline-success" type="submit">Create event</button>
+        </div>
+    </form>
 </div>
 
 <section class="events">
