@@ -10,8 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Ingrid+Darling&display=swap" rel="stylesheet">
 </head>
 <body>
-
-  
     <div class="head">
         <marquee style="font-family: 'Ingrid Darling', sans-serif;"><b>MUSE </b></marquee><br>
     </div>
@@ -36,7 +34,9 @@
             <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="Re-enter your password" name="password" required>
           </div>
           
-          <a><button value="submit" type="submit" class="btn btn-primary" style="font-family: 'Imprima', sans-serif; font-size: 20px;">Sign up</button></a>
+          <form method="post" action="/login" role="form">
+            <button value="submit" type="submit" method="POST" class="btn btn-primary" style="font-family: 'Imprima', sans-serif; font-size: 20px;">Sign up</button>
+          </form>
     </form> 
     <p>Already have an account? <a href="/login">signin</a></p>
 
