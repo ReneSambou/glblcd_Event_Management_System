@@ -23,7 +23,7 @@ class User(db.Model):
             return dictionary
         
 class Event(db.Model):
-        __tablename__ = "events"
+        __tablename__ = "Event"
 
         id = db.Column(db.Integer, primary_key=True)
         user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
