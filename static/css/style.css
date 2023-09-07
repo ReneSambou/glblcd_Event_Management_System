@@ -89,3 +89,10 @@ body{
     }
     
   }
+  .display{
+    border-radius: 15px;
+    background-color:  #C3EDC0;
+    width: 450px;
+    margin-bottom: 20px;
+    padding: 20px;
+  }

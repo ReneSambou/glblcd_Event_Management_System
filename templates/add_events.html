@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Event</title>
@@ -11,8 +12,15 @@
 </head>
 <body>
     <div class="container">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="alert alert-danger">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+    {% endwith %}
         <h2>MUSE</h2>
-        <form action="/add_events" method="post" role="form">
+        <form action="/add_events" method="post" role="form" enctype="multipart/form-data">
            <div class="details">
             <label for="event_name">Event name</label>
             <input type="text" placeholder="Enter event name" required name="name">
@@ -35,12 +43,10 @@
            </div>
            
             <div class="button">
-                <form action="/add_events" method="post" role="form">
-                    <button class="btn btn-outline-success" type="submit" style="color: #fff;">Add event</button>
-                </form>
-                <button class="btn btn-outline-success" type="submit" style="color: #fff;">Add ticket</button>
+                <button class="btn btn-outline-success" type="submit" style="color: #000000;">Add event</button>
             </div>
         </form>
+        <button class="btn btn-outline-success" type="submit" style="color: #000000;">Add ticket</button>
     </div>
 </body>
 </html>

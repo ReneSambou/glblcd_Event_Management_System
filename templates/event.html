@@ -16,12 +16,12 @@
     <div class="header">MUSE</div><br>
 </div>
 <div class="container">
-    Welcome, User
+    Welcome, {{ name }}
 </div>
 <div class="container">
     <input class="search" placeholder="search events ">
     <button class="btn btn-outline-success" type="submit">Search</button>
-    <form action="/event" method="post" role="form">
+    <form action="/event_form" method="post" role="form">
         
         <div class="add_btn">
             <button class="btn btn-outline-success" type="submit">Create event</button>
@@ -30,7 +30,17 @@
 </div>
 
 <section class="events">
-    <div class="prompt">There are no events at the moment. Please try again</div>
+        {% for event in all_event  %}
+            <div class="display">
+                <ul>
+                <li><h2>Title: {{event.event_name}}</h2></li>
+                <li><h4>Venue: {{event.venue}}</h4></li>
+                <li><h4>Date:   {{event.date}}</h4></li>
+                <li><h4>Time: {{event.time}}</h4></li> 
+                </ul>
+                <button class="btn btn-outline-success" type="submit" style="margin-bottom: 10px;">Book Event</button>
+            </div>
+        {% endfor  %}
 </section>
 
 

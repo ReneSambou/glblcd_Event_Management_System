@@ -14,24 +14,37 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)
 
+login_manager = LoginManager()
+login_manager.init_app(app)
+
+@login_manager.user_loader
+def load_user(user_id):
+    return db.session.get(User, user_id);
+
 
 with app.app_context():
     db.create_all()  
 
-    @app.route('/')
+    @app.route('/', methods=['GET'])
     def index():
-        return render_template('event.html')
-
+        return render_template('index.html')
+    
     @app.route('/login', methods=['POST'])
     def login():
+        return render_template('signin.html')
+
+    @app.route('/event', methods=['POST'])
+    def event():
+        
         email = request.form.get('email')
         password = request.form.get('password')
-        user = User.query.filter_by(email=email).first()
+        result = db.session.execute(db.select(User).where(User.email == email))
+        user = result.scalar()
+        name = request.form.get('name')
 
         if user and check_password_hash(user.password, password):
             login_user(user)
-            flash('Login successful!')
-            return redirect(url_for('index'))
+            return render_template('event.html', name = name)
         else:
             flash('Login failed. Please check your email and password.')
             return render_template('signin.html')
@@ -47,18 +60,24 @@ with app.app_context():
     def signup():
         return render_template('signup.html')
     
+    @app.route('/event_form', methods = ["POST"])
+    def event_form():
+        return render_template('add_events.html')
+    
     @app.route('/add_events', methods = ["POST"])
     def add_events():
         events_name = request.form.get("name")
+        existing_event = db.session.query(Event).where(Event.event_name == events_name).first()
+
+        if existing_event:                                                                                                                                                                                                                               
+            flash('Event already exists.')
+            return render_template('add_events.html')
+        
         venue = request.form.get("venue")
         date = request.form.get("date")
         time = request.form.get("time")
         event_flyer = request.form.get("flyer")
-
-        existing_event = Event.query.filter_by(event_name = request.form.get("name")).first()
-
-        if existing_event:                                                                                                                                                                                                                               
-            return jsonify(response={"error": "Event already exists."}), 400
+        file = request.files['flyer']
         
         new_event= Event(
             event_name = events_name,
@@ -66,25 +85,20 @@ with app.app_context():
             date = date,
             time = time,
             event_flyer = event_flyer,
-            
+            event_flyer_content = file.read()
         )
 
         db.session.add(new_event)
-
         db.session.commit()
-        return render_template('event.html')
 
-
-
-
-
+        all_events = db.session.query(Event).all()
+        return render_template('event.html', all_event = all_events)
     
-   
     
-    @app.route("/event", methods = ['POST', 'GET'])
+    @app.route("/events", methods = ['GET', 'POST'])
     def add():
-        
-        return render_template('add_events.html')
+        all_events = db.session.query(Event).all()
+        return render_template('event.html', all_event = all_events)
 
     @app.route("/register", methods=["POST"])
     def register():

@@ -20,7 +20,7 @@ body{
     flex-direction: column;
     padding: 15px;
     width: 500px;
-    height: 590px;
+    height: auto;
     border-radius: 15px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
 
@@ -56,4 +56,5 @@ button{
     background-color: #208d20;
     border: none;
     margin: 10px;
+    
 }

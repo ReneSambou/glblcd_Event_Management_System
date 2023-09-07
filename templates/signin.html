@@ -17,7 +17,14 @@
     </div>
     <P style="font-family: 'Imprima', sans-serif; text-align: center; font-size: 30px; color:rgb(43, 11, 11)">Sign in to your account</P>
     <div class="container">
-      <form method="post" action="/submit" role="form"> 
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="alert alert-danger">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+    {% endwith %}
+      <form method="post" action="/events" role="form"> 
         <div class="mb-3">
             <label for="formGroupExampleInput" class="form-label" style="font-family: 'Imprima', sans-serif; font-size: 29px;" >Email</label>
             <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter your email" name="email" required>
@@ -26,10 +33,8 @@
             <label for="formGroupExampleInput2" class="form-label" style="font-family: 'Imprima', sans-serif; font-size: 29px;">Password</label>
             <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="Enter your password" name="password" required>
           </div>
-          
-          <form method="post" action="/event" role="form">
-             <button method="POST"class="btn btn-primary" style="font-family: 'Imprima', sans-serif; font-size: 20px;">Sign in</button>
-          </form>
+
+          <button method="POST"class="btn btn-primary" style="font-family: 'Imprima', sans-serif; font-size: 20px;">Sign in</button>
     </form> 
     <p>Don't have an account? <a href="/signup">signup</a></form></p>
 
