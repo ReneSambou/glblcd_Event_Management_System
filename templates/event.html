@@ -58,7 +58,7 @@
                 </form>
                 {% with messages = get_flashed_messages() %}
         {% if messages %}
-            <div class="alert alert-danger">
+            <div class="alert alert-success">
                 {{ messages[0] }}
             </div>
         {% endif %}
@@ -73,8 +73,9 @@
                             <h4>Date: {{event.date}}</h4>
                             <h4>Time: {{event.time}}</h4>
                         </ul>
-                        <button class="btn btn-outline-success" type="submit" style="margin-bottom: 10px;">Book
-                            Event</button>
+                        <form action="/book_events" role="form">
+                        <button class="btn btn-outline-success" type="submit" style="margin-bottom: 10px;">BookEvent</button>
+                    </form>
                     </div>
                     {% endfor %}
                 </section>

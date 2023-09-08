@@ -46,7 +46,7 @@ with app.app_context():
         if user and check_password_hash(user.password, password):
             login_user(user)
             all_events = db.session.query(Event).all()
-            return render_template('event.html', name = name,  all_event = all_events)
+            return render_template('event.html', all_event = all_events)
         else:
             flash('Login failed. Please check your email and password.')
             return render_template('signin.html')
@@ -125,6 +125,23 @@ with app.app_context():
             flash(f"Registration failed: {str(e)}", "error")
             return redirect(url_for('signup'))
         
+
+    @app.route("/book_events")
+    def book():
+        return render_template('book_events.html')
+
+
+    @app.route("/yes")
+    def yes():
+        flash('Event booked successfully')
+        all_events = db.session.query(Event).all()
+        return render_template('event.html', all_event = all_events)
+    
+    @app.route("/no")
+    def no():
+        all_events = db.session.query(Event).all()
+        return render_template('event.html', all_event = all_events)
+
 
     @app.route('/search')
     def search():
