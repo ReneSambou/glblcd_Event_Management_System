@@ -1,0 +1,25 @@
+
+   *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Imprima', sans-serif;
+   }
+
+   .container{
+    background-color: #C3EDC0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+   }
+
+   .buttons{
+    display: flex;
+    /* grid-template-columns: repeat(2, auto); */
+    flex-direction: row;
+    
+   }
+   .add_btn{
+    margin-right: 10px;
+   }
