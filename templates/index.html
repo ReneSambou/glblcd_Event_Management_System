@@ -1,57 +1,65 @@
 <!DOCTYPE HTML>
 
 <html>
-	<head>
-		<title>Welcome to muse</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="../static/css/style.css" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	</head>
-	<body class="homepage is-preload">
-		<div id="page-wrapper">
+<head>
+    <title>Welcome to muse</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../static/css/index.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-			<!-- Header -->
-				<div id="header-wrapper">
-					<div class="container">
+</head>
 
-						<!-- Header -->
-							<header id="header">
-								<div class="inner">
+<body class="homepage is-preload">
+    <div id="page-wrapper">
 
-									<!-- Logo -->
-										<h1><a href="index.html" id="logo">Welcome to Muse</a></h1>
 
-									<!-- Nav -->
-										<nav id="nav">
-											<ul>
-												
-                                                
-                                                 <li>   <form  action="/signin" method="post">
-                                                        <button class="b"  type="submit" value="submit">Login</button>
-                                                    </form></li>
-                                                	
-												<li> <form action="/signup" method="post">
-                                                    <button class="c" type="submit" value="submit">
-                                                       Signup </button>
-                                                    </form></li>
-											</ul>
-										</nav>
+        <div id="header-wrapper">
+            <div class="container">
 
-								</div>
-							</header>
 
-						<!-- Banner -->
-							<div id="banner">
-								<h2 style="color: black;">At Muse, We offer seamless Ticketting
-								<br />
-								Fast Booking and Reservations and stress free event management</h2>
-								<p>Create an account with us today</p>
-							</div>
+                <header id="header">
+                    <div class="inner">
 
-					</div>
-				</div>
-</div>
+                        <!-- Logo -->
+                        <h1><a href="index.html" id="logo">Welcome to Muse</a></h1>
+
+                        <!-- Nav -->
+                        <nav id="nav">
+                            <ul>
+
+
+                                <li>
+                                    <form action="/login" method="post">
+                                        <button class="b" type="submit" value="submit">Login</button>
+                                    </form>
+                                </li>
+
+                                <li>
+                                    <form action="/register" method="post">
+                                        <button class="c" type="submit" value="submit">
+                                            Signup </button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </nav>
+
+                    </div>
+                </header>
+
+                <!-- Banner -->
+                <div id="banner">
+                    <h2 style="color: black;">At Muse, We offer seamless Ticketting
+                        <br />
+                        Fast Booking and Reservations and stress free event management
+                    </h2>
+                    <p>Create an account with us today</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
