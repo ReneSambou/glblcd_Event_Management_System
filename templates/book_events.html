@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ingrid+Darling&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Imprima&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/book_events.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm booking</title>
+</head>
+<body>
+<h1>Book Event</h1>
+<div class="container">
+    
+    <p>Are you sure you want to book this event?</p>
+    <div class="buttons">
+       <form action="/yes">
+         <div class="add_btn">
+            <button class="btn btn-outline-success" type="submit">Yes</button>
+         </div>
+       </form>
+
+        <form action="/no" role="form">
+            <div class="add_btn">
+                <button class="btn btn-outline-success" type="submit">No</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
