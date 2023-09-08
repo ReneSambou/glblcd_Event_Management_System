@@ -13,36 +13,51 @@
 </head>
 <body>
 <div class="container">
-    <div class="header">MUSE</div><br>
 </div>
 <div class="container">
-    Welcome, {{ name }}
+    
 </div>
-<div class="container">
-    <input class="search" placeholder="search events ">
-    <button class="btn btn-outline-success" type="submit">Search</button>
-    <form action="/event_form" method="post" role="form">
-        
-        <div class="add_btn">
-            <button class="btn btn-outline-success" type="submit">Create event</button>
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand"><div class="header">MUSE</div><br></a>
+          <form class="d-flex" method="get" action="/search" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+          <form action="/event_form" method="post" role="form">
+            <div class="add_btn">
+                <button class="btn btn-outline-success" type="submit">Create event</button>
+            </div>
+        </form>
         </div>
-    </form>
-</div>
+      </nav>
+<div class="container">Welcome!!</div>
+{% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="alert alert-danger">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+    {% endwith %}
 
 <section class="events">
         {% for event in all_event  %}
             <div class="display">
                 <ul>
-                <li><h2>Title: {{event.event_name}}</h2></li>
-                <li><h4>Venue: {{event.venue}}</h4></li>
-                <li><h4>Date:   {{event.date}}</h4></li>
-                <li><h4>Time: {{event.time}}</h4></li> 
+                <h2>{{event.event_name}}</h2>
+                <h4>Venue: {{event.venue}}</h4>
+                <h4>Date:   {{event.date}}</h4>
+                <h4>Time: {{event.time}}</h4> 
                 </ul>
                 <button class="btn btn-outline-success" type="submit" style="margin-bottom: 10px;">Book Event</button>
             </div>
         {% endfor  %}
 </section>
-
+<form action="/logout" role="form">
+    <div class="logout_btn">
+        <button class="btn btn-outline-success" type="submit">logout</button>
+    </div>
+</form>
 
 </body>
 </html>
