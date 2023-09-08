@@ -33,6 +33,4 @@ class Event(db.Model):
         venue = db.Column(db.String(100))
         date = db.Column(db.String(100))
         time = db.Column(db.String(100))
-        event_flyer =db.Column(db.String(255))
-        event_flyer_content=db.Column(db.LargeBinary, nullable=True)
         created = db.Column(db.DateTime, server_default = sqlalchemy.func.now())

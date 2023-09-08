@@ -27,7 +27,8 @@ with app.app_context():
 
     @app.route('/', methods=['GET'])
     def index():
-        return render_template('index.html')
+        all_events = db.session.query(Event).all()
+        return render_template('index.html', all_event = all_events)
     
     @app.route('/login', methods=['POST'])
     def login():
@@ -35,16 +36,17 @@ with app.app_context():
 
     @app.route('/event', methods=['POST'])
     def event():
-        
+        name = request.form.get('name')
         email = request.form.get('email')
         password = request.form.get('password')
         result = db.session.execute(db.select(User).where(User.email == email))
         user = result.scalar()
-        name = request.form.get('name')
+        
 
         if user and check_password_hash(user.password, password):
             login_user(user)
-            return render_template('event.html', name = name)
+            all_events = db.session.query(Event).all()
+            return render_template('event.html', name = name,  all_event = all_events)
         else:
             flash('Login failed. Please check your email and password.')
             return render_template('signin.html')
@@ -52,8 +54,7 @@ with app.app_context():
     @app.route('/logout')
     def logout():
         logout_user()
-        flash('Logout successful!')
-        return redirect(url_for('index'))
+        return render_template('index.html')
 
 
     @app.route('/signup')
@@ -76,16 +77,12 @@ with app.app_context():
         venue = request.form.get("venue")
         date = request.form.get("date")
         time = request.form.get("time")
-        event_flyer = request.form.get("flyer")
-        file = request.files['flyer']
         
         new_event= Event(
             event_name = events_name,
             venue = venue,
             date = date,
             time = time,
-            event_flyer = event_flyer,
-            event_flyer_content = file.read()
         )
 
         db.session.add(new_event)
@@ -110,7 +107,8 @@ with app.app_context():
             existing_user = User.query.filter_by(email=email).first()
 
             if existing_user:
-                return jsonify(response={"error": "Email already exists."}), 400
+                flash("Email has been used")
+                return render_template('/signup')
 
             hashed_password = generate_password_hash(password, method='pbkdf2:sha256', salt_length=8)
 
@@ -126,6 +124,19 @@ with app.app_context():
             db.session.rollback() 
             flash(f"Registration failed: {str(e)}", "error")
             return redirect(url_for('signup'))
+        
+
+    @app.route('/search')
+    def search():
+        query = request.args.get('query')  
+        matching_events = db.session.query(Event).filter(Event.event_name.ilike(f'%{query}%')).all()
+        
+        if matching_events:
+            return render_template('search_results.html', events=matching_events)
+        else:
+            flash('event does not exist')
+            return render_template('event.html')
+
 
     if __name__ == "__main__":
         app.run(debug=True, host='0.0.0.0', port = 80)

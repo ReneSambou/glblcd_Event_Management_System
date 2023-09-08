@@ -1,63 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+
+<html>
+
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <meta charset="UTF-8">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ingrid+Darling&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Imprima&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../static/css/style.css">
+    <title>Welcome to muse</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../static/css/index.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
 </head>
-<body style="background-color: #C3EDC0;">
-<div class="container">
-    <div class="header1">Welcome to</div><br>
-    <div class="header">MUSE</div><br>
-</div>
-<div class="container">
-    <input class="search" placeholder="search events ">
-    <div class="btn">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-    </div>
-    
-    <div class="add_btn">
-        <form method="post" action="/login" role="form"> 
-            <button class="btn btn-outline-success" type="submit" method="POST">Login</button>
-        </form>
-    </div>
-    
-</div>
 
-<section class="events">
-    <div>Upcoming Events</div>
-    <div class="prompt">There are no events at the moment. Please try again later</div>
-</section>
-
-<section class="about">
-    <div class="s1">
-        <p style="font-size: larger; font-family: Imprima; font-weight: bold;">About Us</p>
-        <p>At Muse, we believe in the power of unforgettable experiences. We are passionate about bringing your visions to life and creating moments that leave lasting impressions.</p>
-    </div>
-</section>
-<div class="slider"></div>
-<section class="service">
-    <div class="a1">
-        <p style="font-size: larger; font-family: Imprima; font-weight: bold;">Our Services</p><br>
-        <p>Seamless Ticketting</p>
-        <img src="../static/ticket.jpeg">
-    </div>
-    <div class="a2">
-        <p>Fast Booking and Reservations</p>
-        <img src="../static/booking.png">
-    </div>
-    <div class="a3">
-        <p>Stress free event management</p>
-        <img src="../static/es.jpeg">
-    </div>
-</section>
+<body class="homepage is-preload">
+    <div id="page-wrapper">
 
 
+        <div id="header-wrapper">
+            <div class="container">
+
+
+                <header id="header">
+                    <div class="inner">
+
+                        <!-- Logo -->
+                        <h1><a href="index.html" id="logo">Welcome to Muse</a></h1>
+
+                        <!-- Nav -->
+                        <nav id="nav">
+                            <ul>
+
+
+                                <li>
+                                    <form action="/login" method="post">
+                                        <button class="b" type="submit" value="submit">Login</button>
+                                    </form>
+                                </li>
+
+                                <li>
+                                    <form action="/register" method="post">
+                                        <button class="c" type="submit" value="submit">
+                                            Signup </button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </nav>
+
+                    </div>
+                </header>
+
+                <!-- Banner -->
+                <div id="banner">
+                    <h2 style="color: black;">At Muse, We offer seamless Ticketting
+                        <br />
+                        Fast Booking and Reservations and stress free event management
+                    </h2>
+                    <p>Create an account with us today</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>

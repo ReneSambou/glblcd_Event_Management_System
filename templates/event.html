@@ -1,48 +1,86 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+
+<html>
+
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <meta charset="UTF-8">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ingrid+Darling&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Imprima&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../static/css/style.css">
+    <title>Welcome to muse</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../static/css/index.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
 </head>
-<body>
-<div class="container">
-    <div class="header">MUSE</div><br>
-</div>
-<div class="container">
-    Welcome, {{ name }}
-</div>
-<div class="container">
-    <input class="search" placeholder="search events ">
-    <button class="btn btn-outline-success" type="submit">Search</button>
-    <form action="/event_form" method="post" role="form">
-        
-        <div class="add_btn">
-            <button class="btn btn-outline-success" type="submit">Create event</button>
-        </div>
-    </form>
-</div>
 
-<section class="events">
-        {% for event in all_event  %}
-            <div class="display">
-                <ul>
-                <li><h2>Title: {{event.event_name}}</h2></li>
-                <li><h4>Venue: {{event.venue}}</h4></li>
-                <li><h4>Date:   {{event.date}}</h4></li>
-                <li><h4>Time: {{event.time}}</h4></li> 
-                </ul>
-                <button class="btn btn-outline-success" type="submit" style="margin-bottom: 10px;">Book Event</button>
+<body class="homepage is-preload">
+    <div id="page-wrapper">
+
+
+        <div id="header-wrapper">
+            <div class="container">
+
+
+                <header id="header">
+                    <div class="inner">
+
+                        <!-- Logo -->
+                        <h1><a href="index.html" id="logo">Muse</a></h1>
+
+                        <!-- Nav -->
+                        <nav id="nav">
+                            <ul>
+
+
+                                <li>
+                                    <form action="/event_form" method="post" role="form">
+                                        <!-- <div class="add_btn"> -->
+                                            <button class="btn btn-outline-success" type="submit">Create event</button>
+                                        <!-- </div> -->
+                                    </form>
+                                </li>
+
+                                <li>
+                                    <form action="/logout" role="form">
+                                        <!-- <div class="logout_btn"> -->
+                                            <button class="btn btn-outline-success" type="submit">logout</button>
+                                        <!-- </div> -->
+                                    </form>
+                                </li>
+                            </ul>
+                        </nav>
+
+                    </div>
+                </header>
+
+                <form class="search" method="get" action="/search" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+                {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="alert alert-danger">
+                {{ messages[0] }}
             </div>
-        {% endfor  %}
-</section>
+        {% endif %}
+    {% endwith %} 
 
-
+                <section class="events">
+                    {% for event in all_event %}
+                    <div class="display">
+                        <ul>
+                            <h2>{{event.event_name}}</h2>
+                            <h4>Venue: {{event.venue}}</h4>
+                            <h4>Date: {{event.date}}</h4>
+                            <h4>Time: {{event.time}}</h4>
+                        </ul>
+                        <button class="btn btn-outline-success" type="submit" style="margin-bottom: 10px;">Book
+                            Event</button>
+                    </div>
+                    {% endfor %}
+                </section>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
